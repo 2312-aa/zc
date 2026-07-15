@@ -1,0 +1,73 @@
+{
+  "tools": [
+    {
+      "name": "breathing_exercise",
+      "description": "引导用户进行呼吸放松练习",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "exercise_type": {
+            "type": "string",
+            "enum": ["478_breathing", "box_breathing", "deep_breathing"],
+            "description": "呼吸练习类型"
+          },
+          "duration_minutes": {
+            "type": "integer",
+            "description": "练习时长（分钟）",
+            "default": 5
+          }
+        }
+      }
+    },
+    {
+      "name": "mood_tracker",
+      "description": "记录用户情绪状态和评分",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "mood_score": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 10,
+            "description": "情绪评分 1-10"
+          },
+          "mood_label": {
+            "type": "string",
+            "description": "情绪标签"
+          },
+          "note": {
+            "type": "string",
+            "description": "备注"
+          }
+        },
+        "required": ["mood_score", "mood_label"]
+      }
+    },
+    {
+      "name": "grounding_exercise",
+      "description": "5-4-3-2-1 接地技术引导",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "step": {
+            "type": "string",
+            "enum": ["start", "see", "touch", "hear", "smell", "taste", "complete"],
+            "description": "接地练习步骤"
+          }
+        }
+      }
+    }
+  ],
+  "resources": [
+    {
+      "name": "cbt_worksheet",
+      "description": "CBT认知重构工作表",
+      "type": "document"
+    },
+    {
+      "name": "safety_plan_template",
+      "description": "安全计划模板",
+      "type": "document"
+    }
+  ]
+}
